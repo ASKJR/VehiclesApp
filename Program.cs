@@ -1,5 +1,4 @@
 ﻿using VehiclesApp.Model;
-using VehiclesApp.Model.Interfaces;
 using VehiclesApp.Repository;
 using VehiclesApp.Data;
 
@@ -9,7 +8,7 @@ namespace VehiclesApp
     {
         static void Main(string[] args)
         {
-            
+
             var vehicles = new List<Vehicle>
             {
                 new Plane(2008, "white", 3),
@@ -19,10 +18,9 @@ namespace VehiclesApp
             };
             var storage = new Storage<Vehicle>();
             storage.WriteData(vehicles);
-            var rep = new Repository<Vehicle>(vehicles);
+            var x = storage.LoadData();
+            var rep = new Repository<Vehicle>(x);
             var v = rep.GetAll();
-
-
         }
     }
 }

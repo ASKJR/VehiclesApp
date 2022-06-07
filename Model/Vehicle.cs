@@ -16,7 +16,5 @@ namespace VehiclesApp.Model
         public string Color { get; set; }
         public VehicleType Type { get; set; }
         public abstract string Move();
-        public override string ToString() => $"Id:{Id},Year:{Year},Color:{Color},Type:{Type}";
-        
     }
 }
