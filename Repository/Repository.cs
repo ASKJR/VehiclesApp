@@ -13,7 +13,7 @@ namespace VehiclesApp.Repository
         
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            Collection = Collection.Where(v => v.Id != id);
         }
 
         public T Get(Guid id)
@@ -28,12 +28,17 @@ namespace VehiclesApp.Repository
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            Collection = Collection.Concat(new[] { entity });
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            var v = Collection.FirstOrDefault(v => v.Id == entity.Id);
+            
+            if (v is not null)
+            {
+                v.Color = entity.Color;
+            }
         }
     }
 }

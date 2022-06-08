@@ -16,7 +16,7 @@ namespace VehiclesApp.Data
 
         public IEnumerable<T>? LoadData()
         {
-            using StreamReader reader = new StreamReader($"{typeof(T).Name}.json");
+            using StreamReader reader = new($"{typeof(T).Name}.json");
             var json = reader.ReadToEnd();
             return JsonConvert.DeserializeObject<IEnumerable<T>>(json, settings);
         }
