@@ -30,5 +30,24 @@ namespace VehiclesAppTests.Repository
             //Assert
             Assert.Equal(expectedVehiclesCount, vehicles.Count());
         }
+
+
+        [Fact(DisplayName = "Update")]
+        public void Should_Update_A_Vehicle()
+        {
+            //Arrange
+            var id = new Guid("e335a290-db4d-412c-abb5-90074d5d65e5");
+            var expectedColor = "Blue";
+            var plane = new Plane(2009, expectedColor, 6);
+
+
+            //Act
+            Repository.Update(id, plane);
+            var updatedPlane = Repository.Get(id);
+            var actualColor = updatedPlane.Color;
+
+            //Assert
+            Assert.Equal(expectedColor, actualColor);
+        }
     }
 }

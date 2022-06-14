@@ -31,9 +31,9 @@ namespace VehiclesApp.Repository
             Collection = Collection.Concat(new[] { entity });
         }
 
-        public void Update(T entity)
+        public void Update(Guid id, T entity)
         {
-            var v = Collection.FirstOrDefault(v => v.Id == entity.Id);
+            var v = Collection.FirstOrDefault(v => v.Id == id);
             
             if (v is not null)
             {
